@@ -24,15 +24,27 @@ const vsetkyOtazky = [
 
 let aktualnyIndex = 0;
 let skore = 0;
+let casovacInterval;
+
+const MAX_CAS = 12;
 
 document.addEventListener("DOMContentLoaded", function () {
     nacitajOtazku();
 });
 
 function nacitajOtazku() {
+    clearInterval(casovacInterval);
+
     if (aktualnyIndex >= vsetkyOtazky.length) {
         document.getElementById("Question").textContent =
-            "Kvíz skončený! Skóre: " + skore + " / " + vsetkyOtazky.length + " " + (skore / vsetkyOtazky.length) * 100 + "%";
+            "Kvíz skončený! Skóre: " + skore + " / " + vsetkyOtazky.length + " | " + Math.round((skore / vsetkyOtazky.length) * 100) + "%";
+
+        document.getElementById("timer").textContent = "⏱ 0s";
+
+        const timerProgress = document.getElementById("timerProgress");
+        if (timerProgress) {
+            timerProgress.style.width = "0%";
+        }
 
         const tlacidla = document.querySelectorAll(".answer");
         tlacidla.forEach(btn => {
@@ -47,9 +59,16 @@ function nacitajOtazku() {
 
     document.getElementById("Question").textContent = q.question;
 
+    const questionProgress = document.getElementById("questionprogressbar");
     const questionCount = document.getElementById("questionCount");
+
     if (questionCount) {
         questionCount.textContent = "Question " + (aktualnyIndex + 1) + "/" + vsetkyOtazky.length;
+    }
+
+    if (questionProgress) {
+        const percent = ((aktualnyIndex + 1) / vsetkyOtazky.length) * 100;
+        questionProgress.style.width = percent + "%";
     }
 
     tlacidla.forEach(function (btn, i) {
@@ -59,9 +78,60 @@ function nacitajOtazku() {
         btn.disabled = false;
         btn.onclick = skontrolujOdpoved;
     });
+
+    spustiTimer();
+}
+
+function spustiTimer() {
+    let zostavajuciCas = MAX_CAS;
+
+    const timerText = document.getElementById("timer");
+    const timerProgress = document.getElementById("timerProgress");
+
+    timerText.textContent = "⏱ " + zostavajuciCas + "s";
+    if (timerProgress) {
+        timerProgress.style.width = "100%";
+    }
+
+    casovacInterval = setInterval(function () {
+        zostavajuciCas--;
+
+        timerText.textContent = "⏱ " + zostavajuciCas + "s";
+
+        if (timerProgress) {
+            const percent = (zostavajuciCas / MAX_CAS) * 100;
+            timerProgress.style.width = percent + "%";
+        }
+
+        if (zostavajuciCas <= 0) {
+            clearInterval(casovacInterval);
+            vyprsalCas();
+        }
+    }, 1000);
+}
+
+function vyprsalCas() {
+    const q = vsetkyOtazky[aktualnyIndex];
+    const vsetkyTlacidla = document.querySelectorAll(".answer");
+
+    vsetkyTlacidla.forEach(function (b) {
+        b.disabled = true;
+
+        if (b.querySelector(".text").textContent === q.correct) {
+            b.style.backgroundColor = "green";
+            b.style.color = "white";
+        }
+    });
+
+    setTimeout(function () {
+        aktualnyIndex++;
+        nacitajOtazku();
+    }, 1200);
 }
 
 function skontrolujOdpoved(event) {
+    clearInterval(casovacInterval);
+
     const btn = event.currentTarget;
     const q = vsetkyOtazky[aktualnyIndex];
     const vsetkyTlacidla = document.querySelectorAll(".answer");

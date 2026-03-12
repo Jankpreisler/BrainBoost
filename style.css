@@ -13,7 +13,6 @@
     align-items: center;
     justify-content: flex-start;
     gap: 28px;
-    font-size: 25px;
     padding-top: 38px;
     padding-bottom: 30px;
     box-sizing: border-box;
@@ -31,6 +30,7 @@
 .ScoreLeaderboardbutton,
 .Difficultybutton{
     width: 448px;
+    max-width: 90vw;
     height: 92px;
     border: none;
     border-radius: 24px;
@@ -44,6 +44,7 @@
                 0 4px 6px -4px rgba(0, 0, 0, 0.10);
     text-decoration: none;
     color: white;
+    transition: transform 0.2s;
 }
 
 .Playbutton{
@@ -72,15 +73,14 @@
 .ScoreLeaderboardbutton:hover,
 .Difficultybutton:hover{
     transform: scale(1.02);
-    transition: 0.2s;
 }
 
-.top{
+.top {
     display: flex;
+    flex-direction: row;  
+    flex-wrap: nowrap;     
     justify-content: center;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
+    gap: 12px;
 }
 
 .center{
@@ -94,6 +94,7 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
+    align-items: center;
 }
 
 .left{
@@ -134,39 +135,26 @@
     line-height: 1;
 }
 
-
-
-
 .levelbox,
 .scorebox,
 .difficultybox{
-    width: 116px;
-    height: 56px;
+    width: 150px;
+    height: 70px;
     background: #F1DDF1;
     border-radius: 999px;
     box-shadow: 0 6px 12px -6px rgba(0, 0, 0, 0.10);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     padding: 0 18px;
     box-sizing: border-box;
-
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: #8B6FFF;
-}
-
-.levelbox::first-line,
-.scorebox::first-line,
-.difficultybox::first-line{
-    font-size: 11px;
-    font-weight: 700;
-    color: #8B6FFF;
+    flex-shrink: 0;
 }
 
 .bottom{
     width: 448px;
+    max-width: 90vw;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -211,4 +199,27 @@
     font-weight: 700;
     color: #FF4FA3;
     line-height: 1;
+}
+
+@media (max-width: 600px){
+    .top{
+        gap: 10px;
+    }
+
+    .levelbox,
+    .scorebox,
+    .difficultybox{
+        width: 120px;
+        height: 64px;
+        padding: 0 14px;
+    }
+
+    .stat-value{
+        font-size: 14px;
+    }
+
+    .logo{
+        width: 220px;
+        height: 220px;
+    }
 }
