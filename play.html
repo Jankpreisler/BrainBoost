@@ -1,18 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="play.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrainBoost Quiz</title>
+<link rel="stylesheet" href="play.css">
+<script src="script.js"></script>
 </head>
+
 <body>
-    <h1 id="Question"></h1>
-    <input class="button" type="button" id="answear1">
-    <input class="button" type="button" id="answear2">
-    <input class="button" type="button" id="answear3">
-    <input class="button" type="button" id="answear4">
-</body>
+
+<div class="quiz">
+
+    <div class="topbar">
+        <a href="index.html" class="quit">← Quit</a>
+    </div>
+
+    <div class="info">
+        <span id="questionCount">Question 1/10</span>
+        <span class="timer">⏱ 12s</span>
+    </div>
+
+    <div class="progressbar"></div>
+
+    <div class="progressbar green"></div>
+
+    <div class="questionbox">
+        <h1 id="Question">Question text</h1>
+    </div>
+
+    <div class="answers">
+
+        <button class="answer" id="answear1">
+            <span class="letter">A</span>
+            <span class="text">Answer 1</span>
+        </button>
+
+        <button class="answer" id="answear2">
+            <span class="letter">B</span>
+            <span class="text">Answer 2</span>
+        </button>
+
+        <button class="answer" id="answear3">
+            <span class="letter">C</span>
+            <span class="text">Answer 3</span>
+        </button>
+
+        <button class="answer" id="answear4">
+            <span class="letter">D</span>
+            <span class="text">Answer 4</span>
+        </button>
+
+    </div>
+
+</div>
+
 </body>
 </html>

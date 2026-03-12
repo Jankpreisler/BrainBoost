@@ -1,79 +1,97 @@
-class Question {
-
-    constructor(questions, answer1, answer2, answer3, answer4, correct) {
-        this.Question = questions
-        this.Answer1 = answer1
-        this.Answer2 = answer2
-        this.Answer3 = answer3
-        this.Answer4 = answer4
-        this.CorrectAnswer = correct;
-    }
-    debug() {
-        console.log(this.Question, this.Answer1, this.Answer2, this.Answer3, this.Answer4);
-    }
-
+function Question(question, a1, a2, a3, a4, correct) {
+    this.question = question;
+    this.answers = [a1, a2, a3, a4];
+    this.correct = correct;
 }
 
 const vsetkyOtazky = [
-    new Question("Ake je hlavne mesto Franczuska", "Lyon", "Paris", "Marsey", "Nice", "Paris"),
-    new Question("Ake je hlavne mesto Talianska", "Rím", "Miláno", "Neapol", "Benátky", "Rím")
+    new Question("Aké je hlavné mesto Francúzska?", "Lyon", "Paris", "Marseille", "Nice", "Paris"),
+    new Question("Aké je hlavné mesto Talianska?", "Rím", "Miláno", "Neapol", "Benátky", "Rím"),
+    new Question("Aké je hlavné mesto Nemecka?", "Mníchov", "Hamburg", "Berlín", "Frankfurt", "Berlín"),
+    new Question("Aké je hlavné mesto Španielska?", "Barcelona", "Sevilla", "Madrid", "Valencia", "Madrid"),
+    new Question("Aké je hlavné mesto Portugalska?", "Porto", "Lisabon", "Faro", "Braga", "Lisabon"),
+    new Question("Aké je hlavné mesto Rakúska?", "Viedeň", "Salzburg", "Innsbruck", "Graz", "Viedeň"),
+    new Question("Aké je hlavné mesto Maďarska?", "Debrecín", "Budapešť", "Szeged", "Pécs", "Budapešť"),
+    new Question("Aké je hlavné mesto Poľska?", "Krakov", "Varšava", "Gdansk", "Poznaň", "Varšava"),
+    new Question("Aké je hlavné mesto Česka?", "Brno", "Ostrava", "Praha", "Plzeň", "Praha"),
+    new Question("Aké je hlavné mesto Slovenska?", "Košice", "Žilina", "Prešov", "Bratislava", "Bratislava"),
+    new Question("Aké je hlavné mesto Chorvátska?", "Split", "Dubrovník", "Záhreb", "Rijeka", "Záhreb"),
+    new Question("Aké je hlavné mesto Grécka?", "Atény", "Solún", "Patras", "Kréta", "Atény"),
+    new Question("Aké je hlavné mesto Holandska?", "Rotterdam", "Amsterdam", "Utrecht", "Eindhoven", "Amsterdam"),
+    new Question("Aké je hlavné mesto Belgicka?", "Bruggy", "Antverpy", "Brusel", "Gent", "Brusel"),
+    new Question("Aké je hlavné mesto Írska?", "Cork", "Galway", "Limerick", "Dublin", "Dublin"),
 ];
 
-// Uložíme ich ručne podľa indexu
-vsetkyOtazky.forEach((q, index) => {
-    localStorage.setItem("q" + index + "_text", q.Question);
-    localStorage.setItem("q" + index + "_a1", q.Answer1);
-    localStorage.setItem("q" + index + "_a2", q.Answer2);
-    localStorage.setItem("q" + index + "_a3", q.Answer3);
-    localStorage.setItem("q" + index + "_a4", q.Answer4);
-    localStorage.setItem("q" + index + "_correct", q.CorrectAnswer);
+let aktualnyIndex = 0;
+let skore = 0;
+
+document.addEventListener("DOMContentLoaded", function () {
+    nacitajOtazku();
 });
 
-localStorage.setItem("aktualnyIndex", 0);
+function nacitajOtazku() {
+    if (aktualnyIndex >= vsetkyOtazky.length) {
+        document.getElementById("Question").textContent =
+            "Kvíz skončený! Skóre: " + skore + " / " + vsetkyOtazky.length + " " + (skore / vsetkyOtazky.length) * 100 + "%";
 
-window.onload = function () {
-    let idx = localStorage.getItem("aktualnyIndex");
-    if (idx === null) {
-        idx = "0";
-        localStorage.setItem("aktualnyIndex", 0);
+        const tlacidla = document.querySelectorAll(".answer");
+        tlacidla.forEach(btn => {
+            btn.style.display = "none";
+        });
+
+        return;
     }
-    
-    console.log("Načítam otázku s indexom: " + idx);
 
-    
-    const text = localStorage.getItem("q" + idx + "_text");
-    
-    
-        document.getElementById("Question").textContent = text;
-        document.getElementById("answear1").value = localStorage.getItem("q" + idx + "_a1");
-        document.getElementById("answear2").value = localStorage.getItem("q" + idx + "_a2");
-        document.getElementById("answear3").value = localStorage.getItem("q" + idx + "_a3");
-        document.getElementById("answear4").value = localStorage.getItem("q" + idx + "_a4");
-    
-        
-    // Priradenie funkcie
-    document.querySelectorAll("input[type=button]").forEach(btn => btn.onclick = NextQuestion);
-};
+    const q = vsetkyOtazky[aktualnyIndex];
+    const tlacidla = document.querySelectorAll(".answer");
 
-function NextQuestion(event) {
-    const btn = event.target;
-    const idx = parseInt(localStorage.getItem("aktualnyIndex")); 
-    const spravna = localStorage.getItem("q" + idx + "_correct");
+    document.getElementById("Question").textContent = q.question;
 
-    if (btn.value === spravna) {
-        btn.style.backgroundColor = "green";
-        
-        let novyIdx = idx + 1; // Zvýšime číslo
-
-        localStorage.setItem("aktualnyIndex", novyIdx.toString()); 
-        
-        console.log("Ukladám nový index: " + novyIdx); // Toto musíš vidieť v konzole
-        
-        location.reload(); 
-    }    
-    else {
-        btn.style.backgroundColor = "red";
+    const questionCount = document.getElementById("questionCount");
+    if (questionCount) {
+        questionCount.textContent = "Question " + (aktualnyIndex + 1) + "/" + vsetkyOtazky.length;
     }
+
+    tlacidla.forEach(function (btn, i) {
+        btn.querySelector(".text").textContent = q.answers[i];
+        btn.style.backgroundColor = "";
+        btn.style.color = "";
+        btn.disabled = false;
+        btn.onclick = skontrolujOdpoved;
+    });
 }
 
+function skontrolujOdpoved(event) {
+    const btn = event.currentTarget;
+    const q = vsetkyOtazky[aktualnyIndex];
+    const vsetkyTlacidla = document.querySelectorAll(".answer");
+    const zvolenaOdpoved = btn.querySelector(".text").textContent;
 
+    vsetkyTlacidla.forEach(b => b.disabled = true);
+
+    if (zvolenaOdpoved === q.correct) {
+        btn.style.backgroundColor = "green";
+        btn.style.color = "white";
+        skore++;
+
+        setTimeout(function () {
+            aktualnyIndex++;
+            nacitajOtazku();
+        }, 800);
+    } else {
+        btn.style.backgroundColor = "red";
+        btn.style.color = "white";
+
+        vsetkyTlacidla.forEach(function (b) {
+            if (b.querySelector(".text").textContent === q.correct) {
+                b.style.backgroundColor = "green";
+                b.style.color = "white";
+            }
+        });
+
+        setTimeout(function () {
+            aktualnyIndex++;
+            nacitajOtazku();
+        }, 1200);
+    }
+}
