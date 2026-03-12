@@ -1,6 +1,6 @@
-class Question{
+class Question {
 
-    constructor(questions, answer1, answer2, answer3, answer4, correct){
+    constructor(questions, answer1, answer2, answer3, answer4, correct) {
         this.Question = questions
         this.Answer1 = answer1
         this.Answer2 = answer2
@@ -14,70 +14,66 @@ class Question{
 
 }
 
-const otazka = new Question("Ake je hlavne mesto Franczuska", "Lyon" ,"Paris", "Marsey", "Nice", "Paris");
-otazka.debug();
+const vsetkyOtazky = [
+    new Question("Ake je hlavne mesto Franczuska", "Lyon", "Paris", "Marsey", "Nice", "Paris"),
+    new Question("Ake je hlavne mesto Talianska", "Rím", "Miláno", "Neapol", "Benátky", "Rím")
+];
 
-localStorage.setItem("ulozenaOtazka", otazka.Question);
-localStorage.setItem("ulozenaodpoved1", otazka.Answer1);
-localStorage.setItem("ulozenaodpoved2", otazka.Answer2);
-localStorage.setItem("ulozenaodpoved3", otazka.Answer3);
-localStorage.setItem("ulozenaodpoved4", otazka.Answer4);
-localStorage.setItem("spravnaOdpoved", otazka.CorrectAnswer);
+// Uložíme ich ručne podľa indexu
+vsetkyOtazky.forEach((q, index) => {
+    localStorage.setItem("q" + index + "_text", q.Question);
+    localStorage.setItem("q" + index + "_a1", q.Answer1);
+    localStorage.setItem("q" + index + "_a2", q.Answer2);
+    localStorage.setItem("q" + index + "_a3", q.Answer3);
+    localStorage.setItem("q" + index + "_a4", q.Answer4);
+    localStorage.setItem("q" + index + "_correct", q.CorrectAnswer);
+});
 
-console.log(otazka.Question);
+localStorage.setItem("aktualnyIndex", 0);
 
-window.onload = function() {
-    const nacitanyText = localStorage.getItem("ulozenaOtazka");
-    const nadpis = document.getElementById("Question");
-
-    const nacitanaodpoved1 = localStorage.getItem("ulozenaodpoved1");
-    const odpoved1 = document.getElementById("answear1");
-
-    const nacitanaodpoved2 = localStorage.getItem("ulozenaodpoved2");
-    const odpoved2 = document.getElementById("answear2");
-
-    const nacitanaodpoved3 = localStorage.getItem("ulozenaodpoved3");
-    const odpoved3 = document.getElementById("answear3");
-
-    const nacitanaodpoved4 = localStorage.getItem("ulozenaodpoved4");
-    const odpoved4 = document.getElementById("answear4");
-
-    if (nacitanyText && nadpis) {
-        nadpis.textContent = nacitanyText;
-    } 
-    if(nacitanaodpoved1 && odpoved1) {
-        odpoved1.value = nacitanaodpoved1;
-    } 
-    if(nacitanaodpoved2 && odpoved1) {
-        odpoved2.value = nacitanaodpoved2;
-    } 
-    if(nacitanaodpoved3 && odpoved1) {
-        odpoved3.value = nacitanaodpoved3;
-    } 
-    if(nacitanaodpoved4 && odpoved1) {
-        odpoved4.value = nacitanaodpoved4;
-    } 
-
-    document.getElementById("answear1").onclick = skontroluj;
-    document.getElementById("answear2").onclick = skontroluj;
-    document.getElementById("answear3").onclick = skontroluj;
-    document.getElementById("answear4").onclick = skontroluj;
+window.onload = function () {
+    let idx = localStorage.getItem("aktualnyIndex");
+    if (idx === null) {
+        idx = "0";
+        localStorage.setItem("aktualnyIndex", 0);
+    }
     
+    console.log("Načítam otázku s indexom: " + idx);
+
+    
+    const text = localStorage.getItem("q" + idx + "_text");
+    
+    
+        document.getElementById("Question").textContent = text;
+        document.getElementById("answear1").value = localStorage.getItem("q" + idx + "_a1");
+        document.getElementById("answear2").value = localStorage.getItem("q" + idx + "_a2");
+        document.getElementById("answear3").value = localStorage.getItem("q" + idx + "_a3");
+        document.getElementById("answear4").value = localStorage.getItem("q" + idx + "_a4");
+    
+        
+    // Priradenie funkcie
+    document.querySelectorAll("input[type=button]").forEach(btn => btn.onclick = NextQuestion);
 };
 
 function NextQuestion(event) {
+    const btn = event.target;
+    const idx = parseInt(localStorage.getItem("aktualnyIndex")); 
+    const spravna = localStorage.getItem("q" + idx + "_correct");
 
-    const stlacenyButton = event.target; // Získame element, na ktorý sa kliklo
-    const vybrataHodnota = stlacenyButton.value; // Text na buttone
-    const spravna = localStorage.getItem("spravnaOdpoved"); // Načítame správnu odpoveď z pamäte
+    if (btn.value === spravna) {
+        btn.style.backgroundColor = "green";
+        
+        let novyIdx = idx + 1; // Zvýšime číslo
 
-    if (vybrataHodnota === spravna) {
-        alert("Správne! Ste génius.");
-        stlacenyButton.style.backgroundColor = "green";
-    } else {
-        alert("Nesprávne, skús znova.");
-        stlacenyButton.style.backgroundColor = "red";
+        localStorage.setItem("aktualnyIndex", novyIdx.toString()); 
+        
+        console.log("Ukladám nový index: " + novyIdx); // Toto musíš vidieť v konzole
+        
+        location.reload(); 
+    }    
+    else {
+        btn.style.backgroundColor = "red";
     }
 }
-    
+
 

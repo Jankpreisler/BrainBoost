@@ -1,15 +1,25 @@
 .telo{
+    margin: 0;
+    min-height: 100vh;
     background-color: rgb(240, 248, 255);
     color: palevioletred;
+    font-family: Inter, Arial, sans-serif;
 }
+
 .main{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    gap: 28px;
     font-size: 25px;
 }
 
 .logo{
     width: 256px;
     height: 256px;
+    object-fit: contain;
 }
 
 .Playbutton,
@@ -22,15 +32,15 @@
     border: none;
     border-radius: 24px;
     padding: 0 24px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: white;
-    font-size: 25px;
-    font-weight: 600;
     cursor: pointer;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.10),
                 0 4px 6px -4px rgba(0, 0, 0, 0.10);
+    text-decoration: none;
+    color: white;
 }
 
 .Playbutton{
@@ -62,30 +72,58 @@
     transition: 0.2s;
 }
 
+.top{
+    display: flex;
+    gap: 16px;
+}
 
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
 
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
 
+.left{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
+.icon-container{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.18);
+    border-radius: 12px;
+    flex-shrink: 0;
+}
 
+.icon{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
 
+.button-text{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    color: white;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.arrow{
+    font-size: 28px;
+    font-weight: 400;
+    color: white;
+    line-height: 1;
+}
