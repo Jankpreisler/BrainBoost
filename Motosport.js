@@ -5,21 +5,21 @@ function Question(question, a1, a2, a3, a4, correct) {
 }
 
 const vsetkyOtazky = [
-    new Question("Aké je hlavné mesto Francúzska?", "Lyon", "Paris", "Marseille", "Nice", "Paris"),
-    new Question("Aké je hlavné mesto Talianska?", "Rím", "Miláno", "Neapol", "Benátky", "Rím"),
-    new Question("Aké je hlavné mesto Nemecka?", "Mníchov", "Hamburg", "Berlín", "Frankfurt", "Berlín"),
-    new Question("Aké je hlavné mesto Španielska?", "Barcelona", "Sevilla", "Madrid", "Valencia", "Madrid"),
-    new Question("Aké je hlavné mesto Portugalska?", "Porto", "Lisabon", "Faro", "Braga", "Lisabon"),
-    new Question("Aké je hlavné mesto Rakúska?", "Viedeň", "Salzburg", "Innsbruck", "Graz", "Viedeň"),
-    new Question("Aké je hlavné mesto Maďarska?", "Debrecín", "Budapešť", "Szeged", "Pécs", "Budapešť"),
-    new Question("Aké je hlavné mesto Poľska?", "Krakov", "Varšava", "Gdansk", "Poznaň", "Varšava"),
-    new Question("Aké je hlavné mesto Česka?", "Brno", "Ostrava", "Praha", "Plzeň", "Praha"),
-    new Question("Aké je hlavné mesto Slovenska?", "Košice", "Žilina", "Prešov", "Bratislava", "Bratislava"),
-    new Question("Aké je hlavné mesto Chorvátska?", "Split", "Dubrovník", "Záhreb", "Rijeka", "Záhreb"),
-    new Question("Aké je hlavné mesto Grécka?", "Atény", "Solún", "Patras", "Kréta", "Atény"),
-    new Question("Aké je hlavné mesto Holandska?", "Rotterdam", "Amsterdam", "Utrecht", "Eindhoven", "Amsterdam"),
-    new Question("Aké je hlavné mesto Belgicka?", "Bruggy", "Antverpy", "Brusel", "Gent", "Brusel"),
-    new Question("Aké je hlavné mesto Írska?", "Cork", "Galway", "Limerick", "Dublin", "Dublin"),
+    new Question("Aký je oficiálny názov pre najvyššiu triedu okruhových pretekov?", "WRC", "F1", "MotoGP", "IndyCar", "F1"),
+    new Question("Koľko pneumatík musí mať vozidlo F1 počas pretekov?", "3", "4", "5", "6", "4"),
+    new Question("Čo znamená skratka DRS?", "Drag Reduction System", "Driving Race System", "Direct Racing Speed", "Downforce Reset System", "Drag Reduction System"),
+    new Question("Ktorá farba vlajky signalizuje okamžité zastavenie pretekov?", "Žltá", "Červená", "Čierna", "Modrá", "Červená"),
+    new Question("Kto je rekordérom v počte titulov majstra sveta F1 (spolu s Michaelom Schumacherom)?", "Ayrton Senna", "Lewis Hamilton", "Sebastian Vettel", "Max Verstappen", "Lewis Hamilton"),
+    new Question("Ako sa nazýva priestor, kde jazdci zastavujú na výmenu pneumatík?", "Boxy (Pit lane)", "Garáž", "Paddock", "Grid", "Boxy (Pit lane)"),
+    new Question("Akú farbu má vlajka, ktorá signalizuje nebezpečenstvo na trati a zákaz predbiehania?", "Biela", "Zelená", "Žltá", "Čierna", "Žltá"),
+    new Question("Ktorý tím je známy svojou ikonickou červenou farbou?", "Mercedes", "Red Bull", "Ferrari", "McLaren", "Ferrari"),
+    new Question("Čo znamená pojem 'Safety Car'?", "Rýchle kolo", "Zavádzacie vozidlo", "Mechanik", "Časový limit", "Zavádzacie vozidlo"),
+    new Question("Ako sa nazýva štartovacia pozícia z prvého miesta?", "Pole position", "Grid start", "Best start", "Lead position", "Pole position"),
+    new Question("Ktorá časť vozidla zabezpečuje prítlak k zemi?", "Motor", "Aerodynamické krídla", "Prevodovka", "Brzdy", "Aerodynamické krídla"),
+    new Question("Čo indikuje modrá vlajka?", "Pomalšie auto má pustiť rýchlejšie pred seba", "Koniec pretekov", "Porucha motora", "Diskvalifikácia", "Pomalšie auto má pustiť rýchlejšie pred seba"),
+    new Question("Ktorá krajina je tradičným domovom slávnych pretekov 'Targa Florio'?", "Francúzsko", "Taliansko", "Nemecko", "Španielsko", "Taliansko"),
+    new Question("Ako sa nazýva systém ochrany hlavy jazdca v kokpite?", "HANS", "Halo", "Cockpit Shield", "Rollbar", "Halo"),
+    new Question("Aký typ motora sa v súčasnosti používa v F1?", "V12", "V8", "Hybridný V6 turbo", "Elektromotor", "Hybridný V6 turbo"),
 ];
 
 let aktualnyIndex = 0;

@@ -5,21 +5,21 @@ function Question(question, a1, a2, a3, a4, correct) {
 }
 
 const vsetkyOtazky = [
-    new Question("Aké je hlavné mesto Francúzska?", "Lyon", "Paris", "Marseille", "Nice", "Paris"),
-    new Question("Aké je hlavné mesto Talianska?", "Rím", "Miláno", "Neapol", "Benátky", "Rím"),
-    new Question("Aké je hlavné mesto Nemecka?", "Mníchov", "Hamburg", "Berlín", "Frankfurt", "Berlín"),
-    new Question("Aké je hlavné mesto Španielska?", "Barcelona", "Sevilla", "Madrid", "Valencia", "Madrid"),
-    new Question("Aké je hlavné mesto Portugalska?", "Porto", "Lisabon", "Faro", "Braga", "Lisabon"),
-    new Question("Aké je hlavné mesto Rakúska?", "Viedeň", "Salzburg", "Innsbruck", "Graz", "Viedeň"),
-    new Question("Aké je hlavné mesto Maďarska?", "Debrecín", "Budapešť", "Szeged", "Pécs", "Budapešť"),
-    new Question("Aké je hlavné mesto Poľska?", "Krakov", "Varšava", "Gdansk", "Poznaň", "Varšava"),
-    new Question("Aké je hlavné mesto Česka?", "Brno", "Ostrava", "Praha", "Plzeň", "Praha"),
-    new Question("Aké je hlavné mesto Slovenska?", "Košice", "Žilina", "Prešov", "Bratislava", "Bratislava"),
-    new Question("Aké je hlavné mesto Chorvátska?", "Split", "Dubrovník", "Záhreb", "Rijeka", "Záhreb"),
-    new Question("Aké je hlavné mesto Grécka?", "Atény", "Solún", "Patras", "Kréta", "Atény"),
-    new Question("Aké je hlavné mesto Holandska?", "Rotterdam", "Amsterdam", "Utrecht", "Eindhoven", "Amsterdam"),
-    new Question("Aké je hlavné mesto Belgicka?", "Bruggy", "Antverpy", "Brusel", "Gent", "Brusel"),
-    new Question("Aké je hlavné mesto Írska?", "Cork", "Galway", "Limerick", "Dublin", "Dublin"),
+    new Question("Aký je základný stavebný kameň všetkých živých organizmov?", "Molekula", "Atóm", "Bunka", "Tkanivo", "Bunka"),
+    new Question("Ktorý organel je zodpovedný za produkciu energie (ATP) v bunke?", "Ribozóm", "Mitochondria", "Lyzozóm", "Jadro", "Mitochondria"),
+    new Question("Ako sa nazýva proces, pri ktorom rastliny premieňajú svetelnú energiu na chemickú?", "Respirácia", "Fermentácia", "Fotosyntéza", "Transpirácia", "Fotosyntéza"),
+    new Question("Ktorá zložka DNA je nositeľom genetickej informácie?", "Proteíny", "Nukleotidy", "Lipidy", "Sacharidy", "Nukleotidy"),
+    new Question("Ako sa nazýva látka, ktorá dáva listom zelenú farbu?", "Karotén", "Chlorofyl", "Anthokyan", "Xantofyl", "Chlorofyl"),
+    new Question("Ktorý orgán v ľudskom tele je zodpovedný za filtráciu krvi a tvorbu moču?", "Pečeň", "Obličky", "Srdce", "Pľúca", "Obličky"),
+    new Question("Ako sa nazýva súbor všetkých génov v organizme?", "Fenotyp", "Genotyp", "Genóm", "Karyotyp", "Genóm"),
+    new Question("Ktorý typ delenia buniek vedie k vzniku pohlavných buniek?", "Mitóza", "Amitóza", "Meióza", "Pučanie", "Meióza"),
+    new Question("Ako sa nazýva vzťah medzi dvoma organizmami, z ktorého majú obaja úžitok?", "Parazitizmus", "Mutualizmus", "Komenzalizmus", "Predácia", "Mutualizmus"),
+    new Question("Ktorý enzým v slinách začína trávenie škrobov?", "Lipáza", "Amyláza", "Proteáza", "Nukleáza", "Amyláza"),
+    new Question("Ako sa nazýva schopnosť organizmu udržiavať stálu vnútornú teplotu?", "Homeostáza", "Osmoregulácia", "Metabolizmus", "Adaptácia", "Homeostáza"),
+    new Question("Ktorá časť rastliny zabezpečuje príjem vody a minerálnych látok z pôdy?", "List", "Stonka", "Koreň", "Kvet", "Koreň"),
+    new Question("Ktorý plyn je hlavným produktom bunkového dýchania?", "Kyslík", "Dusík", "Oxid uhličitý", "Vodík", "Oxid uhličitý"),
+    new Question("Ako sa nazýva štrukturálna jednotka svalového vlákna?", "Nefrón", "Neurón", "Sarkoméra", "Axón", "Sarkoméra"),
+    new Question("Ktorá skupina organizmov patrí medzi prokaryoty?", "Rastliny", "Živočíchy", "Baktérie", "Huby", "Baktérie")
 ];
 
 let aktualnyIndex = 0;

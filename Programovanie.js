@@ -5,21 +5,21 @@ function Question(question, a1, a2, a3, a4, correct) {
 }
 
 const vsetkyOtazky = [
-    new Question("Aké je hlavné mesto Francúzska?", "Lyon", "Paris", "Marseille", "Nice", "Paris"),
-    new Question("Aké je hlavné mesto Talianska?", "Rím", "Miláno", "Neapol", "Benátky", "Rím"),
-    new Question("Aké je hlavné mesto Nemecka?", "Mníchov", "Hamburg", "Berlín", "Frankfurt", "Berlín"),
-    new Question("Aké je hlavné mesto Španielska?", "Barcelona", "Sevilla", "Madrid", "Valencia", "Madrid"),
-    new Question("Aké je hlavné mesto Portugalska?", "Porto", "Lisabon", "Faro", "Braga", "Lisabon"),
-    new Question("Aké je hlavné mesto Rakúska?", "Viedeň", "Salzburg", "Innsbruck", "Graz", "Viedeň"),
-    new Question("Aké je hlavné mesto Maďarska?", "Debrecín", "Budapešť", "Szeged", "Pécs", "Budapešť"),
-    new Question("Aké je hlavné mesto Poľska?", "Krakov", "Varšava", "Gdansk", "Poznaň", "Varšava"),
-    new Question("Aké je hlavné mesto Česka?", "Brno", "Ostrava", "Praha", "Plzeň", "Praha"),
-    new Question("Aké je hlavné mesto Slovenska?", "Košice", "Žilina", "Prešov", "Bratislava", "Bratislava"),
-    new Question("Aké je hlavné mesto Chorvátska?", "Split", "Dubrovník", "Záhreb", "Rijeka", "Záhreb"),
-    new Question("Aké je hlavné mesto Grécka?", "Atény", "Solún", "Patras", "Kréta", "Atény"),
-    new Question("Aké je hlavné mesto Holandska?", "Rotterdam", "Amsterdam", "Utrecht", "Eindhoven", "Amsterdam"),
-    new Question("Aké je hlavné mesto Belgicka?", "Bruggy", "Antverpy", "Brusel", "Gent", "Brusel"),
-    new Question("Aké je hlavné mesto Írska?", "Cork", "Galway", "Limerick", "Dublin", "Dublin"),
+    new Question("Ktoré kľúčové slovo sa používa na deklaráciu premennej, ktorú nemožno meniť?", "var", "let", "const", "static", "const"),
+    new Question("Ako sa v JS vypisuje text do konzoly?", "print()", "console.log()", "write()", "alert()", "console.log()"),
+    new Question("Aký je rozdiel medzi '==' a '==='?", "žiadny", "=== porovnáva aj typ", "== porovnáva aj typ", "neexistujú", "=== porovnáva aj typ"),
+    new Question("Čo vráti výraz '2' + 2?", "4", "22", "NaN", "chyba", "22"),
+    new Question("Ako sa zapíše komentár na jeden riadok?", "/* */", "", "//", "#", "//"),
+    new Question("Ktorá metóda pridá prvok na koniec poľa?", "push()", "pop()", "shift()", "unshift()", "push()"),
+    new Question("Ako sa definuje šípková funkcia (arrow function)?", "function =>", "=> ()", "() =>", "arrow()", "() =>"),
+    new Question("Čo je to 'undefined' v JavaScripte?", "chyba", "nulová hodnota", "neinicializovaná hodnota", "typ objektu", "neinicializovaná hodnota"),
+    new Question("Ktorý objekt v JS slúži na prácu s časom?", "Time", "Clock", "Date", "Calendar", "Date"),
+    new Question("Čo vráti funkcia typeof 'Ahoj'?", "string", "text", "char", "object", "string"),
+    new Question("Ktorý operátor slúži na logické 'A'?", "||", "!", "&&", "??", "&&"),
+    new Question("Ako sa nazýva proces, pri ktorom JS automaticky mení typy?", "casting", "type coercion", "parsing", "compiling", "type coercion"),
+    new Question("Ktorý cyklus sa bežne používa na iteráciu poľa?", "for", "do-while", "if", "switch", "for"),
+    new Question("Čo vráti výraz 2 === '2'?", "true", "false", "undefined", "NaN", "false"),
+    new Question("Ako sa volá štandard, podľa ktorého sa JS vyvíja?", "HTML", "ECMAScript", "JSON", "Node", "ECMAScript")
 ];
 
 let aktualnyIndex = 0;
