@@ -1,0 +1,25 @@
+.hotovo{
+    color: gray;
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+.Nazov{
+    font-size: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.ulohy{
+    font-size: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.taskinput{
+    width: 580px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+}
