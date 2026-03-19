@@ -55,5 +55,23 @@
 
 </div>
 
+
+<script>
+const tema = localStorage.getItem("brainboostTema");
+
+if (tema === "geografia") {
+    document.write('<script src="geografia.js"><\/script>');
+} else if (tema === "programovanie") {
+    document.write('<script src="programovanie.js"><\/script>');
+} else if (tema === "filmy") {
+    document.write('<script src="filmy.js"><\/script>');
+} else if (tema === "sport") {
+    document.write('<script src="sport.js"><\/script>');
+} else if (tema === "general") {
+    document.write('<script src="general.js"><\/script>');
+} else {
+    document.write('<script src="geografia.js"><\/script>');
+}
+</script>
 </body>
 </html>
