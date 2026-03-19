@@ -34,7 +34,8 @@ function vytvorPrvok(uloha) {
     novyRiadok.textContent = uloha + "  ";
 
     let odkaz = document.createElement("a");
-    odkaz.textContent = " (Zmazať)";
+    odkaz.textContent = " Zmazať";
+    odkaz.style.textDecoration="none";
     odkaz.href = "#";
     odkaz.style.color = "red";
     odkaz.onclick = function(e) {
@@ -46,7 +47,8 @@ function vytvorPrvok(uloha) {
     };
 
     let Finished = document.createElement("a");
-    Finished.textContent = " (Hotovo)";
+    Finished.textContent = " Hotovo";
+    Finished.style.textDecoration="none";
     Finished.href = "#";
     Finished.style.color = "green";
     Finished.onclick = function(e) {
